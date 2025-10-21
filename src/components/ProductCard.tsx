@@ -58,25 +58,24 @@ export const ProductCard = ({
         </button>
       </div>
       
-      <div className="p-4">
-        <h3 className="mb-2 font-medium text-foreground">{name}</h3>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-lg font-bold text-foreground">${price.toFixed(2)}</span>
-            {originalPrice && (
-              <span className="text-sm text-muted-foreground line-through">
-                ${originalPrice.toFixed(2)}
-              </span>
-            )}
-          </div>
-          <Button
-            size="icon"
-            onClick={handleAddToCart}
-            className="rounded-full"
-          >
-            <ShoppingBag className="h-4 w-4" />
-          </Button>
+      <div className="p-3">
+        <h3 className="mb-1 text-sm font-semibold text-foreground line-clamp-1">{name}</h3>
+        <div className="mb-2 flex items-baseline gap-2">
+          <span className="text-lg font-bold text-foreground">${price.toFixed(2)}</span>
+          {originalPrice && (
+            <span className="text-xs text-muted-foreground line-through">
+              ${originalPrice.toFixed(2)}
+            </span>
+          )}
         </div>
+        <Button
+          size="sm"
+          onClick={handleAddToCart}
+          className="w-full rounded-full font-medium"
+        >
+          <ShoppingBag className="mr-1.5 h-4 w-4" />
+          Add to Cart
+        </Button>
       </div>
     </div>
   );
