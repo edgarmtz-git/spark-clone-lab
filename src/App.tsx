@@ -8,6 +8,7 @@ import Shop from "./pages/Shop";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import Account from "./pages/Account";
+import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/account" element={<Account />} />

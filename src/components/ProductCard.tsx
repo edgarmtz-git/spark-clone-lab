@@ -2,6 +2,7 @@ import { Heart, ShoppingBag } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
   id: number;
@@ -25,6 +26,7 @@ export const ProductCard = ({
   isInWishlist = false,
 }: ProductCardProps) => {
   const [liked, setLiked] = useState(isInWishlist);
+  const navigate = useNavigate();
 
   const handleWishlistClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -38,7 +40,10 @@ export const ProductCard = ({
   };
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl bg-card shadow-sm transition-all hover:shadow-md">
+    <div 
+      onClick={() => navigate(`/product/${id}`)}
+      className="group relative overflow-hidden rounded-2xl bg-card shadow-sm transition-all hover:shadow-md cursor-pointer"
+    >
       <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
         <img
           src={image}
